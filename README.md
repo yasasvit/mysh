@@ -1,4 +1,4 @@
-Names: Pratyoy Biswas, Yasasvi Tallapaneni\
+Names: Pratyoy Biswas, Yasasvi Tallapaneni
 
 # Test Plan:
 ## Two Extensions:
