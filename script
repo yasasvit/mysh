@@ -1,0 +1,77 @@
+pwd
+cd ..
+echo this is the parent directory
+pwd
+cd shell
+pwd
+echo this directory does not exist
+cd does_not_exist
+pwd
+echo
+
+ls
+echo hello world
+cat test_files/test1
+sort test_files/test2
+wc -w test_files/test3
+cat file_not_exist
+doesnotexistcmd
+echo
+
+echo we can run another C file from mysh
+cd test_files
+gcc -g -std=c99 -Wall -fsanitize=address,undefined -o testc testc.c
+./testc
+echo done
+cd ..
+echo
+
+echo wildcards
+ls *.c
+ls *.txt
+ls w*
+echo directory wildcards (Ext. 3)
+ls */test1
+cd testing/y*/nested
+cd ../../..
+ls test_files/*ng
+
+echo
+
+rm -rf baz
+mkdir -p baz
+cd baz
+echo foo bar quux>baz1
+echo foo bar> baz2 quux
+echo foo >baz3 bar quux
+echo > baz4 foo bar quux
+echo original word count:
+wc -w < baz4
+echo new text > baz4
+echo new word count:
+wc -w < baz4
+echo this file does not exist
+wc < file_not_exist
+cd ..
+
+echo
+
+echo files sorted in time order
+ls -t
+echo pipe to sort in reverse order
+ls -t |sort -r
+echo redirect output to test4
+pwd
+ls -t |sort >test_files/test4
+echo printing redirected output 
+cat test_files/test4
+echo 
+cd test_files
+echo combination of input and output redirection with pipes
+echo final test > test5
+cat < test5|cat > test6
+cat test6
+cd ..
+
+exit |pwd
+echo this shouldn't be printed
